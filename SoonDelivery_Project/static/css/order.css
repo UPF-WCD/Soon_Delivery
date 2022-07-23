@@ -106,6 +106,7 @@ body {
 
 .input-container {
   display: flex;
+  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -135,6 +136,14 @@ body {
 
 .order-textarea:focus {
   outline: none;
+}
+
+#drop-down {
+  height: 19px;
+  width: 100px;
+  margin: 0px 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 /* 버튼 영역 시작 */

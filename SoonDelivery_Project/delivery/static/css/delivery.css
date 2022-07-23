@@ -131,6 +131,14 @@ body {
 
 /* 버튼 영역 시작 */
 
+#room-id-form{
+  display: flex;
+}
+
+.hiding{
+  display: none;
+}
+
 #button-area {
   display: flex;
   justify-content: space-between;

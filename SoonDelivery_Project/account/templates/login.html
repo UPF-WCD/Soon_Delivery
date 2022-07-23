@@ -28,7 +28,7 @@
                         <img src="{% static 'image/id.svg' %}" alt="ID">
                     </div>
                     <div class="input-area">
-                        <input class="input-box" type="text" name="nickname" placeholder="ID"required>
+                        <input class="input-box" type="text" name="nickname" placeholder="ID" autocomplete="off" autofocus required>
                     </div>
                 </div>
                 <div class="item">
@@ -36,7 +36,8 @@
                         <img src="{% static 'image/password.svg' %}" alt="ID">
                     </div>
                     <div class="input-area">
-                        <input class="input-box" type="password" name="password" placeholder="비밀번호" />                    </div>
+                        <input class="input-box" type="password" name="password" placeholder="비밀번호" autocomplete="off" />
+                    </div>
                 </div>
                 <div id="button-area">
                     <button class="blue big-button">로그인</button>

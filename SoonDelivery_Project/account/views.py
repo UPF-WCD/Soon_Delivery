@@ -22,10 +22,12 @@ from datetime import datetime, timezone
 from django.utils import timezone
 from django.contrib.auth.hashers import check_password
 from django.db import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 # def home(request):
 #     return render(request, 'home.html')
 
+@csrf_exempt
 def user_login(request):
     if request.method == "POST":
         username = request.POST["nickname"]
@@ -53,7 +55,7 @@ def activate(request, uid64, token):
     else:
         return HttpResponse('비정상적인 접근입니다.')
 
-def user_signup(request):    
+def user_signup(request):
     if request.method == "POST" :
         try :
             user = User.objects.create_user(
@@ -64,7 +66,7 @@ def user_signup(request):
                 school_email = request.POST["school_email"],
                 school_number = request.POST["school_number"],
             )
-            user.is_trial = True
+            user.is_trial = False
             user.save()
             current_site = get_current_site(request) 
             message = render_to_string('user_activate_email.html',                         {

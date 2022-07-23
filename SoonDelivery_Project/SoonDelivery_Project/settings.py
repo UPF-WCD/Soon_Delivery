@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'chat',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
+    'chat.apps.ChatConfig',
     'delivery.apps.DeliveryConfig',
     'six',
 ]
@@ -142,9 +142,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 # 메일을 호스트하는 서버
 EMAIL_PORT = 587
 # gmail과의 통신하는 포트
-EMAIL_HOST_USER = 'sario2970@gmail.com'
+EMAIL_HOST_USER = 'chc981125@gmail.com'
 # 발신할 이메일
-EMAIL_HOST_PASSWORD = 'gus29701*'
+EMAIL_HOST_PASSWORD = 'ihdaucelajlybnec'
 # 발신할 메일의 비밀번호
 EMAIL_USE_TLS = True
 # TLS 보안 방법
@@ -159,12 +159,4 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Channels
-ASGI_APPLICATION = 'SoonDelivery_Project.routing.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        # 'CONFIG': {
-        #     "hosts": [('127.0.0.1', 6379)],
-        # },
-    },
-}
+ASGI_APPLICATION = 'SoonDelivery_Project.asgi.application'

@@ -20,10 +20,12 @@ import delivery.views as d
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import include
 account = 'account'
 
 
 urlpatterns = [
+    # path('실제 보이는 url', 뷰 메서드, name = '템플릿에서 부르는 액션 이름'),
     path('admin/', admin.site.urls),
     # path('', a.home, name="home"),
     path('', a.user_login, name='login'),
@@ -45,10 +47,12 @@ urlpatterns = [
     path('check/', a.check, name='check'),
     # path('mypage/<str:user_id>', a.update, name='update'),
     # path('', d.welcome, name="welcome"),
+    path('chat/<str:user_id>', c.chat, name="chat"),
+    path('chat/str:user_id/<str:room_name>/', c.room, name="room"),
+    path('chat/create_room/', c.create_room, name="create_room"),
     path('main/', d.home, name="home"),
     path('order/<str:user_id>', d.order, name='order'),
     path('order_delivery/<str:order_id>', d.order_delivery, name="order_delivery"),
-    path('start_delivery/<int:user_id>/<str:order_id>', d.start_delivery, name="start_delivery"),
+    path('start_delivery/<int:room_id>/<int:user_id>/<str:order_id>', d.start_delivery, name="start_delivery"),
 
-    path('<str:room_name>/', c.room, name="room"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

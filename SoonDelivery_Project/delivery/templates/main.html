@@ -53,7 +53,7 @@
                                 <div class="order-preview">
                                     <p class="order-menu">배달 물건 : {{order.delivery_list}}</p>
                                     <p class="order-place">배달 장소 : {{order.delivery_location}}</p>
-                                    <p class="order-tip">배달 팁 : {{order.delivery_price}}</p>
+                                    <p class="order-tip">배달 팁 : {{order.delivery_price}}원</p>
                                 </div>
                             </div>
                         </a>
@@ -76,7 +76,7 @@
             <p class="menu-explain">메인</p>
         </div>
         <div class="menu-button-space">
-            <a class="menu-button" href="test.html">
+            <a class="menu-button" href="{% url 'chat' user.id %}">
                 <img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
             </a>
             <p class="menu-explain">채팅</p>

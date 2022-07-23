@@ -72,7 +72,12 @@ body {
   height: 15px;
 }
 
+.input-area{
+  width: 90%;
+}
+
 .input-box {
+  width: 96%;
   border: none;
   font-size: 1.2rem;
 }
