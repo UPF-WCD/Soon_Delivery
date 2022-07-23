@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <div id="main-container">
+        <div id="chat-container">
+            <div id="top-title-area">
+                <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
+                <div class="top-title">
+                    <p>채팅 목록</p>
+                </div>
+                <div class="top-white-space"></div>
+            </div>
+            <div id="center-area">
+                {% for room in rooms %}
+                <div class="room-area">
+                    <p class="room-name">
+                        방 제목 : {{room.user1}} 과 {{room.user2}} 의 방
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- What chat room would you like to enter?<br>
+    <input id="room-name-input" type="text" size="100"><br>
+    <input id="room-name-submit" type="button" value="Enter">
+    {{ user_id|json_script:"userID" }}
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var user1ID = parseInt(document.querySelector('#room-name-input').value);
+            var user2ID = parseInt(JSON.parse(document.querySelector("#userID").textContent));
+
+            if (user1ID > user2ID){     // 빠른 번호 ID가 user1ID로 들어간다.
+                [user1ID, user2ID] = [user2ID, user1ID];
+            }
+
+            window.location.pathname = '/chat/' + user1ID + '_' + user2ID + '/';
+        };
+    </script>
+</body> -->
+</html>
