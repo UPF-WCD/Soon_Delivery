@@ -1,0 +1,183 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+html {
+  margin: 0px;
+  height: 100vh;
+  font-size: 10px;
+}
+
+body {
+  margin: 0px;
+  height: 100vh;
+  min-width: 320px;
+}
+
+#main-container {
+  height: 100%;
+  margin: 0px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#chat-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+}
+
+#center-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* top-title-area 시작 */
+#top-title-area {
+  width: 100%;
+  margin: 30px 0px;
+  border-bottom: 2px solid #a7a7a7;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-title p {
+  margin: 20px;
+  font-size: 2rem;
+  color: #707070;
+}
+
+.top-white-space {
+  width: 45px;
+  height: 60px;
+}
+/* top-title-area 끝 */
+
+#center-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  border: none;
+  /* background-color: #e7e7e7; */
+  /* box-shadow: 0px 3px 6px #0000003f; */
+  margin-bottom: 20px;
+}
+#img-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#img-div p {
+  color: #707070;
+}
+
+#input-file {
+  display: none;
+}
+
+.image-wraper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+#profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50, 50);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 100%;
+}
+
+#input_file_label_img {
+  display: flex;
+  width: 200px;
+}
+
+#name-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #a7a7a7;
+}
+
+#name-area p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info {
+  font-size: 15px;
+}
+
+input {
+  width: 100%;
+  height: 20px;
+}
+#change_img {
+  display: none;
+}
+#change_image_button {
+  height: 40px;
+  width: 120px;
+  border-radius: 25px;
+  border: none;
+  background-color: #a7b3ff;
+  box-shadow: 0px 3px 6px #0000003f;
+  font-size: 1.4rem;
+  color: #707070;
+}
+.change_image_buttons {
+  font-size: 8px;
+  display: flex;
+  justify-content: right;
+}
+
+.button-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#change_password_button {
+  height: 40px;
+  width: 120px;
+  border-radius: 25px;
+  border: none;
+  background-color: #a7b3ff;
+  box-shadow: 0px 3px 6px #0000003f;
+  font-size: 1.4rem;
+  color: #707070;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+#logout-button {
+  height: 40px;
+  width: 120px;
+  border-radius: 25px;
+  border: none;
+  background-color: #ffa7a7;
+  box-shadow: 0px 3px 6px #0000003f;
+  font-size: 1.4rem;
+  color: #707070;
+}

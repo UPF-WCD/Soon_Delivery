@@ -1,3 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #707070;
+}
+
 html {
   height: 100vh;
   font-size: 10px;
@@ -84,6 +91,10 @@ body {
 
 /* 주문 폼 시작 */
 #order-area {
+  width: 100%;
+}
+
+#order-area > div {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -147,3 +158,29 @@ body {
 /* 버튼 영역 끝 */
 
 /* 주문 폼 끝 */
+/* footer 시작 */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  height: 70px;
+  border-radius: 50px 50px 0px 0px;
+
+  background-color: white;
+}
+
+.menu-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer-img {
+  width: 70%;
+}
+/* footer 끝 */

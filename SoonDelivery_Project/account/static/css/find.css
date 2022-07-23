@@ -1,3 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #707070;
+}
+
 html {
   height: 100vh;
   font-size: 10px;
@@ -28,13 +35,18 @@ body {
   margin: 30px 0px;
   border-bottom: 2px solid #a7a7a7;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .top-title p {
   margin: 20px;
   font-size: 2rem;
   color: #707070;
+}
+
+.top-white-space {
+  width: 45px;
+  height: 60px;
 }
 /* top-title-area 끝 */
 

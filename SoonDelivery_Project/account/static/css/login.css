@@ -1,3 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #707070;
+}
+
 html {
   height: 100vh;
   font-size: 10px;
@@ -65,7 +72,12 @@ body {
   height: 15px;
 }
 
+.input-area{
+  width: 90%;
+}
+
 .input-box {
+  width: 96%;
   border: none;
   font-size: 1.2rem;
 }

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
     <link rel="stylesheet" href="{% static 'css/delivery.css' %}">
     <title>Detail</title>
 </head>
@@ -18,7 +19,7 @@
         <div id="order-container">
             <!-- top-title-area 시작 -->
             <div id="top-title-area">
-                <img src="{% static 'img/back-icon.svg' %}" alt="뒤로가기">
+                <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
                 <div class="top-title">
                     <p>배달 세부 사항</p>
                 </div>
@@ -27,35 +28,46 @@
             <!-- top-title-area 끝 -->
             <!-- 중앙 컨테이너 시작 -->
             <div id="center-container">
-                <p class="description">{{order_list.delivery_onwer.nickname}}님의 주문서</p>
-                <p id="name" style="display: none;">{{order_list.delivery_onwer.nickname}}</p>
-                <p id="id" style="display: none;">{{order_list.id}}</p>
+                <p class="description">{{order_list.delivery_owner.nickname}} 님의 주문서</p>
                 <div id="order-area">
-                    {% csrf_token %}
-                    <div class="input-container">
-                        <p>배달 주소 : {{order_list.delivery_location}}</p>
-                    </div>
-                    <div class="input-container">
-                        <p>상점 주소 : {{order_list.store_location}}</p>
-                    </div>
-                    <div class="input-container">
-                        <p>주문 금액 : {{order_list.stuff_price}}</p>
-                    </div>
-                    <div class="input-container">
-                        <p>배달 팁 : {{order_list.delivery_price}}</p>
-                    </div>
-                    <div class="input-container">
-                        <p>상품 명 : {{order_list.delivery_list}}</p>
-                    </div>
-                    <div class="input-container">
-                        <p>기타 요구 사항 : {{order_list.extra_order}}</p>
+                    <div>
+                        <div class="input-container">
+                            <p>배달 주소 : {{order_list.delivery_location}}</p>
+                        </div>
+                        <div class="input-container">
+                            <p>상점 주소 : {{order_list.store_location}}</p>
+                        </div>
+                        <div class="input-container">
+                            <p>주문 금액 : {{order_list.stuff_price}}</p>
+                        </div>
+                        <div class="input-container">
+                            <p>배달 팁 : {{order_list.delivery_price}}</p>
+                        </div>
+                        <div class="input-container">
+                            <p>상품 명 : {{order_list.delivery_list}}</p>
+                        </div>
+                        <div class="input-container">
+                            <p>기타 요구 사항 : {{order_list.extra_order}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- 중앙 컨테이너 끝 -->
-            <a href="{% url 'start_delivery' user.id order_list.id %}">
-                <button class="blue big-button" id="onclick_order" onclick="">배달하기</button>
-            </a>
+            <!-- 주문자 본인이거나 주문이 완료된 경우 -->
+            {% if order_list.delivery_owner.id == user.id or order_list.is_delivered == 2%}
+                <a href="{% url 'my_order_history' user.id %}">
+                    <button class="blue big-button" id="onclick_order" onclick="">확인</button>
+                </a>
+            <!-- 정상적인 경우 -->
+            {% else %}
+                <form id="room-id-form" method="POST" name="form" action="{% url 'create_room' %}" >
+                    {% csrf_token %}
+                    <input class="hiding" type="text" name="user1_id" value="{{user.id}}">  <!-- 배달자(본인) -->
+                    <input class="hiding" type="text" name="user2_id" value="{{order_list.delivery_owner.id}}"> <!-- 주문자 -->
+                    <input class="hiding" type="text" name="order_id" value="{{order_list.id}}"> <!-- 주문 번호 -->
+                    <button class="blue big-button" id="onclick_order" onclick="">배달하기</button>
+                </form>
+            {% endif %}
         <!-- 주문하기 폼 끝 -->
             <!-- 여백 시작 -->
             <div class="white-space"></div>
@@ -65,10 +77,39 @@
     </div>
     <!-- 메인컨테이너 끝 -->
     <script>
-        document.querySelector('#onclick_order').onclick = function(e) {
-            var roomName = document.querySelector('#name').value;
-            window.location.pathname = '/chat/' + roomName + '/';
-        };
+        // 위 배달하기 버튼 a태그 지우고 배달하기 누르면 채팅으로 감
+        // document.querySelector('#onclick_order').onclick = function(e) {
+        //     var roomId = document.querySelector('#room-id').innerText;
+        //     window.location.pathname = '/chat/' + roomId + '/';
+        // };
     </script>
+    <!-- footer 시작 -->
+    <footer>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'home' %}">
+                <img src="{% static 'img/activated-main-menu-icon.svg' %}" alt="메인메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">메인</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'chat' user.id %}">
+                <img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">채팅</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'my_order_history' user.id %}">
+                <img src="{% static 'img/deactivated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">주문/배달</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'mypage' user.id %}">
+                <img src="{% static 'img/deactivated-mypage-menu-icon.svg' %}" alt="마이페이지" class="footer-img">
+            </a>
+            <p class="menu-explain">마이페이지</p>
+        </div>
+    </footer>
+    <!-- footer 끝 -->
 </body>
 </html>

@@ -1,3 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  color: #404040;
+}
+
 html {
   font-size: 10px;
   height: 100%;
@@ -41,25 +48,21 @@ a {
 
 .slogan-light {
   font-size: 20px;
-  color: #606060;
+  color: #404040;
   font-weight: 200;
   margin: 0px 0px 0px 0px;
 }
 
 .slogan-bold {
   font-size: 20px;
-  color: #606060;
+  color: #404040;
   font-weight: 500;
   margin: 0px 0px 0px 0px;
 }
 
-.explan-space {
-  margin-bottom: 10px;
-}
-
 .explain {
   font-size: 10px;
-  color: #606060;
+  color: #404040;
   font-weight: 200;
   margin: 0px 0px 0px 0px;
 }
@@ -81,7 +84,7 @@ a {
   box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
 
   font-size: 20px;
-  color: #606060;
+  color: #404040;
 
   border: 0px;
   border-radius: 20px;
@@ -100,6 +103,7 @@ a {
   border-radius: 20px;
 
   margin-top: 10px;
+  margin-bottom: 100px;
 }
 
 .order-list-space2 {
@@ -108,7 +112,7 @@ a {
 
 .order-list-tag {
   font-size: 13px;
-  color: #606060;
+  color: #404040;
   margin-bottom: 10px;
 }
 
@@ -117,7 +121,7 @@ a {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  border-top: 1px solid #c0c0c0;
+  border-top: 1px solid #909090;
 }
 
 .user-profile-pic-space {
@@ -126,7 +130,7 @@ a {
   border-radius: 70%;
   overflow: hidden;
 
-  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1); */
   margin: 10px 10px 10px 0px;
 }
 
@@ -149,7 +153,7 @@ a {
 
 .user-name {
   font-size: 17px;
-  color: #606060;
+  color: #404040;
   font-weight: 500;
   margin: 0;
 }
@@ -162,9 +166,29 @@ a {
 .order-place,
 .order-tip {
   font-size: 13px;
-  color: #606060;
-  font-weight: 200;
+  color: #404040;
+  font-weight: 300;
   margin: 0;
+}
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 100px;
+  right: 40px;
+  background-color: #5c73f6;
+  border-radius: 50px;
+  box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.float-text {
+  font-size: 13px;
+  font-weight: 200;
+  color: #fff;
 }
 
 footer {
@@ -178,16 +202,32 @@ footer {
   width: 100%;
   height: 70px;
   border-radius: 50px 50px 0px 0px;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
 
   background-color: white;
+}
+
+.menu-button-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60px;
 }
 
 .menu-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+.menu-explain {
+  font-size: 10px;
+  color: #404040;
+  text-align: center;
+  margin: 0;
 }
 
 .footer-img {
-  width: 70%;
+  height: 30px;
 }

@@ -1,1 +1,18 @@
-<svg id="레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.58 350"><defs><style>.cls-1,.cls-2{fill:none;}.cls-2{stroke:#717070;stroke-miterlimit:10;stroke-width:4px;}.cls-3{clip-path:url(#clip-path);}</style><clipPath id="clip-path"><rect class="cls-1" x="34.07" y="127.17" width="262.84" height="125.57"/></clipPath></defs><circle class="cls-2" cx="165.48" cy="125" r="42.72"/><g class="cls-3"><circle class="cls-2" cx="165.48" cy="252.74" r="84.11"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160.449" height="153.399" viewBox="0 0 160.449 153.399">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="37" width="160.449" height="153.399" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="사각형_6" data-name="사각형 6" width="233.449" height="111.529" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="스크롤_그룹_3" data-name="스크롤 그룹 3" transform="translate(-37)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <g id="deactivated-mypage-menu-icon" transform="translate(-34.07 -80.28)">
+      <circle id="타원_9" data-name="타원 9" cx="37.943" cy="37.943" r="37.943" transform="translate(112.843 82.28)" fill="none" stroke="#717070" stroke-miterlimit="10" stroke-width="4"/>
+      <g id="그룹_4" data-name="그룹 4" transform="translate(34.07 122.15)" clip-path="url(#clip-path-2)">
+        <circle id="타원_10" data-name="타원 10" cx="74.705" cy="74.705" r="74.705" transform="translate(42.011 36.824)" fill="none" stroke="#717070" stroke-miterlimit="10" stroke-width="4"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -28,9 +28,15 @@
             </div>
         </div>
         <div class="contents">
+            {% if user.id == 0 %}
+            <a href="{% url 'mypage' user.id %}">
+                <button id="order-button">주문하기</button>
+            </a>
+            {% else %}
             <a href="{% url 'order' user.id %}">
                 <button id="order-button">주문하기</button>
             </a>
+            {% endif %}
             <div class="order-list-space">
                 <div class="order-list-space2">
                     <div class="order-list-tag">배달 목록</div>
@@ -47,8 +53,7 @@
                                 <div class="order-preview">
                                     <p class="order-menu">배달 물건 : {{order.delivery_list}}</p>
                                     <p class="order-place">배달 장소 : {{order.delivery_location}}</p>
-                                    <p class="order-tip">배달 팁 : {{order.delivery_price}}</p>
-                                    <a href="{% url 'order_delivery' order.id %}">자세히 보기</a>
+                                    <p class="order-tip">배달 팁 : {{order.delivery_price}}원</p>
                                 </div>
                             </div>
                         </a>
@@ -57,12 +62,37 @@
                 </div>
             </div>        
         </div>
+        <a href="{% url 'order' user.id %}" class="float">
+            <div class="float-text">
+                주문<br>하기
+            </div>
+        </a>
     </div>
     <footer>
-        <a class="menu-button" href="#"><img src="{% static 'img/activated-main-menu-icon.svg' %}" alt="메인메뉴" class="footer-img"></a>
-        <a class="menu-button" href="#"><img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img"></a>
-        <a class="menu-button" href="{% url 'my_delivery_history' user.id %}"><img src="{% static 'img/deactivated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img"></a>
-        <a class="menu-button" href="{% url 'mypage' user.id %}"><img src="{% static 'img/deactivated-mypage-menu-icon.svg' %}" alt="마이페이지" class="footer-img"></a>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'home' %}">
+                <img src="{% static 'img/activated-main-menu-icon.svg' %}" alt="메인메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">메인</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'chat' user.id %}">
+                <img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">채팅</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'my_order_history' user.id %}">
+                <img src="{% static 'img/deactivated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">주문/배달</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'mypage' user.id %}">
+                <img src="{% static 'img/deactivated-mypage-menu-icon.svg' %}" alt="마이페이지" class="footer-img">
+            </a>
+            <p class="menu-explain">마이페이지</p>
+        </div>
     </footer>
 </body>
 </html>

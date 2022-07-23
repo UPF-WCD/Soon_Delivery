@@ -18,7 +18,7 @@
         <div id="order-container">
             <!-- top-title-area 시작 -->
             <div id="top-title-area">
-                <img src="{% static 'img/back-icon.svg' %}" alt="뒤로가기">
+                <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
                 <div class="top-title">
                     <p>주문하기</p>
                 </div>
@@ -34,22 +34,28 @@
                         {% csrf_token %}
                         <div class="input-container">
                             <p>배달 주소 : </p>
-                            <input class="input-box" type="text" name="delivery_location">
+                            <input class="input-box" type="text" name="delivery_location" autocomplete="off" placeholder="ex) 향설1 3층 입구">
                         </div>
                         <div class="input-container">
                             <p>상점 주소 : </p>
-                            <input class="input-box" type="text" name="store_location">
+                            <input class="input-box" type="text" name="store_location" autocomplete="off" placeholder="ex) 신전떡볶이">
                         </div>
                         <div class="input-container">
                             <p>주문 금액 : </p>
-                            <input class="input-box" type="text" name="stuff_price">
+                            <input id="stuff_price" class="input-box" type="text" name="stuff_price" autocomplete="off" placeholder="ex) 12000">
                         </div>
                         <div class="input-container">
                             <p>배달 팁 : </p>
-                            <input class="input-box" type="text" name="delivery_price">
+                            <select id="drop-down" name="delivery_price">
+                                <option value="1000">1000원</option>
+                                <option value="1500">1500원</option>
+                                <option value="2000">2000원</option>
+                                <option value="2500">2500원</option>
+                                <option value="3000">3000원</option>
+                            </select>
                         </div>
-                        <textarea cols="5" rows="5" placeholder="상품 명" name="delivery_list"></textarea>
-                        <textarea cols="5" rows="5" placeholder="기타 요구 사항" name="extra_order"></textarea>
+                        <textarea class="order-textarea" cols="5" rows="5" placeholder="상품 명" name="delivery_list"></textarea>
+                        <textarea class="order-textarea" cols="5" rows="5" placeholder="기타 요구 사항" name="extra_order"></textarea>
                     </div>
                 </div>
                 <!-- 중앙 컨테이너 끝 -->
@@ -63,5 +69,6 @@
         <!-- 주문 컨테이너 끝 -->
     </div>
     <!-- 메인컨테이너 끝 -->
+    <script src="{% static 'js/order.js' %}"></script>
 </body>
 </html>
