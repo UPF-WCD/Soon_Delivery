@@ -67,12 +67,6 @@ def start_delivery(request, room_id=0, user_id=0, order_id=0):
     except ValueError:
         return redirect('login')
 
-
-def chat(request, room_name):
-    chat_detail = chat_info.objects.get(id=room_name)
-    order_man = User.objects.get(id = chat_detail.order)
-    return render(request, 'chat.html', {'room_name': room_name, 'order_man':order_man})
-
 def confirm(request, user_id=0, order_id=0):
     order_detail = delivery_info.objects.get(id=order_id)
     order_detail.time_required = 0
