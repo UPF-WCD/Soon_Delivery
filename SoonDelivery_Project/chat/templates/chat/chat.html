@@ -18,11 +18,13 @@
             </div>
             <div id="center-area">
                 {% for room in rooms %}
-                <div class="room-area">
-                    <p class="room-name">
-                        방 제목 : {{room.user1}} 과 {{room.user2}} 의 방
-                    </p>
-                </div>
+                <a class="room" href="{% url 'room' room.id %}">
+                    <div class="room-area">
+                        <p class="room-name">
+                            방 제목 : {{room.room_name}}
+                        </p>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
