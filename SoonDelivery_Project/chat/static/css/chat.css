@@ -181,3 +181,7 @@ input {
   font-size: 1.4rem;
   color: #707070;
 }
+
+.hiding{
+  display: none;
+}
