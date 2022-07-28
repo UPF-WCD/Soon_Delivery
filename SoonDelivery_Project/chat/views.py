@@ -16,7 +16,8 @@ def chat(request, user_id = 0):
 
 def room(request, room_id):
     try:
-      room = get_object_or_404(Chat, id="room_id")
+      room = get_object_or_404(Chat, id=room_id)
+      print(room.room_name)
       return render(request, 'chat/room.html', {
         'room': room
         })
