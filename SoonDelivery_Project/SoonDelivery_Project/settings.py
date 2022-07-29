@@ -154,3 +154,8 @@ AUTHENTICATION_BACKENDS = (
 
 # Channels
 ASGI_APPLICATION = 'SoonDelivery_Project.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    },
+}

@@ -4,7 +4,7 @@ from django.db.models.deletion import CASCADE
 class Chat(models.Model):
   # id
   # 방번호, 유저1아이디, 유저2아이디, 채팅들(내용, 송신자, 시간)
-  room_name = models.CharField(max_length=50, default='')
+  room_title = models.CharField(max_length=50, default='')
   user1 = models.ForeignKey('account.User', on_delete=CASCADE, default='', related_name='user1')
   user2 = models.ForeignKey('account.User', on_delete=CASCADE, default='', related_name='user2')
   
