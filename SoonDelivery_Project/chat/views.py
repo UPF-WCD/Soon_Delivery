@@ -8,7 +8,7 @@ def chat(request, user_id = 0):
   if user_id == 0:
     redirect('login')
   
-  rooms = Chat.objects.filter(user1 = User.objects.get(id = user_id))
+  rooms = Chat.objects.filter(Q(user1 = User.objects.get(id = user_id)) | Q(user2 = User.objects.get(id = user_id)))
   return render(request, 'chat/chat.html', {
       'user_id': user_id,
       'rooms': rooms
@@ -16,7 +16,8 @@ def chat(request, user_id = 0):
 
 def room(request, room_id):
     try:
-      room = get_object_or_404(Chat, id="room_id")
+      room = get_object_or_404(Chat, id=room_id)
+      print(room.room_name)
       return render(request, 'chat/room.html', {
         'room': room
         })
