@@ -9,7 +9,7 @@ class Chat(models.Model):
   user2 = models.ForeignKey('account.User', on_delete=CASCADE, default='', related_name='user2')
   
   def __str__(self):
-    return str(self.room_name)
+    return str(self.room_title)
 
 class Contents(models.Model):
   room= models.ForeignKey('chat.Chat', on_delete=CASCADE, default='', related_name='room')
