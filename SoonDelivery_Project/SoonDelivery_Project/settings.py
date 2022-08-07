@@ -83,6 +83,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mysql':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'chattingdb',
+        'USER': 'root',
+        'PASSWORD': 'eqholic1125',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
