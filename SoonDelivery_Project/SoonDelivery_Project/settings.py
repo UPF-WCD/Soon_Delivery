@@ -79,6 +79,12 @@ WSGI_APPLICATION = 'SoonDelivery_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# db 라우터
+DATABASE_ROUTERS = [
+    'SoonDelivery_Project.dbrouter.MultiDBRouter',
+]
+
+# db 정보
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
