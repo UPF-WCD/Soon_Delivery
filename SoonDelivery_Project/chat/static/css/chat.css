@@ -2,77 +2,59 @@
 
 * {
   font-family: "Noto Sans KR", sans-serif;
+  color: #707070;
 }
 
 html {
-  margin: 0px;
-  height: 100vh;
   font-size: 10px;
+  height: max-content;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0px;
-  height: 100vh;
-  min-width: 320px;
+  height: max-content;
+  margin: 0;
+  padding: 0;
 }
 
-#main-container {
-  height: 100%;
-  margin: 0px 36px;
+a {
+  text-decoration-line: none;
+}
+
+.container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-}
-
-#chat-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
   flex-direction: column;
-  align-items: top;
+  height: 100%;
+  padding: 0px 40px 40px 40px;
 }
 
-#center-area {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-/* top-title-area 시작 */
 #top-title-area {
   width: 100%;
-  margin: 30px 0px;
+  margin-bottom: 30px;
   border-bottom: 2px solid #a7a7a7;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  align-items: center;
 }
 
 .top-title p {
   margin: 20px;
   font-size: 2rem;
   color: #707070;
+  font-weight: 400;
 }
 
-.top-white-space {
-  width: 45px;
-  height: 60px;
+.top-right-space {
+  visibility: hidden;
 }
-/* top-title-area 끝 */
 
-#center-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 25px;
-  border: none;
-  /* background-color: #e7e7e7; */
-  /* box-shadow: 0px 3px 6px #0000003f; */
-  margin-bottom: 20px;
-}
-#img-div {
+.contents {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -80,108 +62,196 @@ body {
   align-items: center;
 }
 
-#img-div p {
-  color: #707070;
+.tab {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-#input-file {
-  display: none;
+.activated-tab-button {
+  width: 47%;
+  text-align: center;
+
+  background-color: #a7b3ff;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  border: 0px;
+  border-radius: 70px;
+
+  color: #606060;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 10px 10px 10px;
 }
 
-.image-wraper {
-  position: relative;
-  width: 150px;
-  height: 150px;
+.button-space {
+  width: 4%;
 }
 
-#profile-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(50, 50);
+.deactivated-tab-button {
+  width: 47%;
+  text-align: center;
+
+  background-color: #eeeeee;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.3);
+
+  border: 0px;
+  border-radius: 70px;
+
+  color: #606060;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 10px 10px 10px;
+}
+
+.order-list-space {
+  width: 100%;
+}
+
+.order-space {
+  width: 100%;
+
+  background-color: rgba(233, 233, 233, 0.6);
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
+
+  border: 0px;
+  border-radius: 20px;
+
+  margin-top: 10px;
+}
+
+.order-space2 {
+  padding: 10px 20px 10px 20px;
+}
+
+.order-list-tag {
+  font-size: 13px;
+  color: #606060;
+  margin-bottom: 10px;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.left-space {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.now-delivering {
+  color: #a7b3ff;
+  border: 1px solid #a7b3ff;
+  border-radius: 10px 10px 10px 10px;
+  padding: 0px 3px 0px 3px;
+}
+
+.wait-deliver {
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  padding: 0px 3px 0px 3px;
+}
+
+.is-delivered {
+  color: #606060;
+  border: 1px solid #606060;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-profile-pic-space {
+  width: 50px;
+  height: 50px;
+  border-radius: 70%;
+  overflow: hidden;
+
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.user-profile-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin: auto;
-  border-radius: 100%;
 }
 
-#input_file_label_img {
+.order-preview-space {
   display: flex;
-  width: 200px;
+  flex-direction: column;
+  margin: 10px 10px 10px 10px;
 }
 
-#name-area {
-  width: 100%;
+.order-preview {
+  margin: 5px 5px 5px 5px;
+}
+
+.order-menu,
+.order-place,
+.order-tip {
+  font-size: 13px;
+  color: #606060;
+  font-weight: 200;
+  margin: 0;
+}
+
+/* room 시작 */
+
+
+
+/* room 끝 */
+
+/* footer 시작 */
+footer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  border-bottom: 2px solid #a7a7a7;
-}
 
-#name-area p {
-  font-size: 20px;
-  font-weight: bold;
-}
+  position: fixed;
+  bottom: 0;
 
-.info {
-  font-size: 15px;
-}
-
-input {
   width: 100%;
-  height: 20px;
-}
-#change_img {
-  display: none;
-}
-#change_image_button {
-  height: 40px;
-  width: 120px;
-  border-radius: 25px;
-  border: none;
-  background-color: #a7b3ff;
-  box-shadow: 0px 3px 6px #0000003f;
-  font-size: 1.4rem;
-  color: #707070;
-}
-.change_image_buttons {
-  font-size: 8px;
-  display: flex;
-  justify-content: right;
+  height: 70px;
+  border-radius: 50px 50px 0px 0px;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.1);
+
+  background-color: white;
 }
 
-.button-area {
-  width: 100%;
+.menu-button-space {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 60px;
 }
 
-#change_password_button {
-  height: 40px;
-  width: 120px;
-  border-radius: 25px;
-  border: none;
-  background-color: #a7b3ff;
-  box-shadow: 0px 3px 6px #0000003f;
-  font-size: 1.4rem;
+.menu-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-explain {
+  font-family: "Noto Sans KR", sans-serif;
   color: #707070;
+  font-size: 10px;
+  color: #404040;
+  text-align: center;
+  margin: 0;
+  height: 15px;
+  line-height: 15px;
 }
 
-.margin-top {
-  margin-top: 30px;
+.footer-img {
+  height: 30px;
 }
-
-#logout-button {
-  height: 40px;
-  width: 120px;
-  border-radius: 25px;
-  border: none;
-  background-color: #ffa7a7;
-  box-shadow: 0px 3px 6px #0000003f;
-  font-size: 1.4rem;
-  color: #707070;
-}
-
-.hiding{
-  display: none;
-}
+/* footer 끝 */
