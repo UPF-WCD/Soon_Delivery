@@ -1,57 +1,93 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
-    <title>Chat Rooms</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/history.css' %}">
+    <script type="text/javascript" src="{% static 'js/history.js' %}"></script>
+    <title>채팅</title>
 </head>
 <body>
-    <div id="main-container">
-        <div id="chat-container">
-            <div id="top-title-area">
-                <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
-                <div class="top-title">
-                    <p>채팅 목록</p>
-                </div>
-                <div class="top-white-space"></div>
+    <div class="container">
+        <div id="top-title-area">
+            <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
+            <div class="top-title">
+                <p class="title">채팅</p>
             </div>
-            <div id="center-area">
-                {% for room in rooms %}
-                <a class="room" href="{% url 'room' room.id %}">
-                    <div class="room-area">
-                        <p class="room-name">
-                            방 제목 : {{room.room_title}}
-                        </p>
-                    </div>
-                </a>
-                {% endfor %}
+            <div class="top-right-space">
+                <img src="{% static 'img/back-icon.svg' %}">
             </div>
         </div>
+        <div class="contents">
+            {% for room in rooms %}
+            <div class="order-space">
+                <div class="order-space2">
+                    <a class="order" href="{% url 'room' room.id %}">
+                        <div class="left-space">
+                            {% if room.user1.id == user_id %}
+                                {% if room.user2.image %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{{ room.user2.image.url }}" alt="사용자 프로필 사진">
+                                </div>
+                                {% else %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{% static 'image/default-user-profile-pic.png' %}" alt="사용자 프로필 사진">
+                                </div>
+                                {% endif %}
+                            {% else %}
+                                {% if room.user1.image %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{{ room.user1.image.url }}" alt="사용자 프로필 사진">
+                                </div>
+                                {% else %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{% static 'image/default-user-profile-pic.png' %}" alt="사용자 프로필 사진">
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="order-preview-space">
+                            <div class="order-preview" >
+                                <p class="order-menu">방 제목 : {{room.room_title}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
+    <!-- footer 시작 -->
+    <footer>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'home' %}">
+                <img src="{% static 'img/deactivated-main-menu-icon.svg' %}" alt="메인메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">메인</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'chat' user.id %}">
+                <img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">채팅</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'my_order_history' user.id %}">
+                <img src="{% static 'img/activated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img">
+            </a>
+            <p class="menu-explain">주문/배달</p>
+        </div>
+        <div class="menu-button-space">
+            <a class="menu-button" href="{% url 'mypage' user.id %}">
+                <img src="{% static 'img/deactivated-mypage-menu-icon.svg' %}" alt="마이페이지" class="footer-img">
+            </a>
+            <p class="menu-explain">마이페이지</p>
+        </div>
+    </footer>
+    <!-- footer 끝 -->
 </body>
-    <!-- What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
-    {{ user_id|json_script:"userID" }}
-    <script>
-        document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
-            }
-        };
-
-        document.querySelector('#room-name-submit').onclick = function(e) {
-            var user1ID = parseInt(document.querySelector('#room-name-input').value);
-            var user2ID = parseInt(JSON.parse(document.querySelector("#userID").textContent));
-
-            if (user1ID > user2ID){     // 빠른 번호 ID가 user1ID로 들어간다.
-                [user1ID, user2ID] = [user2ID, user1ID];
-            }
-
-            window.location.pathname = '/chat/' + user1ID + '_' + user2ID + '/';
-        };
-    </script>
-</body> -->
 </html>

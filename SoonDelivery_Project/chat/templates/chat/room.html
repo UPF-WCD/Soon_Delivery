@@ -1,16 +1,73 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    
-    <title>Chat Room</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/room.css' %}">
+    <script type="text/javascript" src="{% static 'js/history.js' %}"></script>
+    <title>채팅방</title>
 </head>
 <body>
-    <textarea id="room-title" id="" cols="30" rows="1">{{ room.room_title }}</textarea>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <div class="container">
+        <div id="top-title-area">
+            <img src="{% static 'img/back-icon.svg' %}" onclick="history.back()" alt="뒤로가기">
+            <div class="top-title">
+                <p class="title">{{ room.room_title }}</p>
+            </div>
+            <div class="top-right-space">
+                <img src="{% static 'img/back-icon.svg' %}">
+            </div>
+        </div>
+        <div class="contents">
+            {% for room in rooms %}
+            <div class="order-space">
+                <div class="order-space2">
+                    <a class="order" href="{% url 'room' room.id %}">
+                        <div class="left-space">
+                            {% if room.user1.id == user_id %}
+                                {% if room.user2.image %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{{ room.user2.image.url }}" alt="사용자 프로필 사진">
+                                </div>
+                                {% else %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{% static 'image/default-user-profile-pic.png' %}" alt="사용자 프로필 사진">
+                                </div>
+                                {% endif %}
+                            {% else %}
+                                {% if room.user1.image %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{{ room.user1.image.url }}" alt="사용자 프로필 사진">
+                                </div>
+                                {% else %}
+                                <div class="user-profile-pic-space">
+                                    <img class="user-profile-pic" src="{% static 'image/default-user-profile-pic.png' %}" alt="사용자 프로필 사진">
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="order-preview-space">
+                            <div class="order-preview" >
+                                <p class="order-menu">방 제목 : {{room.room_title}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="dialog">
+          <textarea id="chat-log" cols="50" rows="10"></textarea><br>
+        </div>
+    </div>
+    <div id="input-area">
+      <input id="chat-message-input" type="text">
+      <button id = "chat-message-submit" type="button"><img id="send-image" src="{% static 'img/arrow-small-up.png' %}" alt=""></button>
+    </div>
     {{ room_id|json_script:"room-id" }}
     <script>
         const roomId = JSON.parse(document.getElementById('room-id').textContent);
