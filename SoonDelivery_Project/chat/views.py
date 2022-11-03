@@ -9,7 +9,7 @@ def chat(request, user_id = 0):
     redirect('login')
   
   rooms = Chat.objects.filter(Q(user1 = User.objects.get(id = user_id)) | Q(user2 = User.objects.get(id = user_id)))
-  return render(request, 'chat/chat.html', {
+  return render(request, 'chat/chat-1.html', {
       'user_id': user_id,
       'rooms': rooms
       })
