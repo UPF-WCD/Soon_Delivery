@@ -27,7 +27,7 @@ a {
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  padding: 40px 40px 40px 40px;
+  padding: 0px 40px 40px 40px;
 }
 
 #top-title-area {
