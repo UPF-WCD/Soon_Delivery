@@ -71,13 +71,13 @@
         </div>
         <div class="menu-button-space">
             <a class="menu-button" href="{% url 'chat' user.id %}">
-                <img src="{% static 'img/deactivated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
+                <img src="{% static 'img/activated-chat-menu-icon.svg' %}" alt="채팅메뉴" class="footer-img">
             </a>
             <p class="menu-explain">채팅</p>
         </div>
         <div class="menu-button-space">
             <a class="menu-button" href="{% url 'my_order_history' user.id %}">
-                <img src="{% static 'img/activated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img">
+                <img src="{% static 'img/deactivated-history-menu-icon.svg' %}" alt="주문메뉴" class="footer-img">
             </a>
             <p class="menu-explain">주문/배달</p>
         </div>
