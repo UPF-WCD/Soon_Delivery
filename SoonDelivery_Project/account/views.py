@@ -77,7 +77,7 @@ def user_signup(request):
             })
             mail_subject = "[순부름] 회원가입 인증 메일입니다."
             user_email = user.school_email
-            email = EmailMessage(mail_subject, message, to=[user_email])
+            email = EmailMessage(mail_subject, message,from_email="eqholic1125@naver.com" , to=[user_email])
             email.send()
             return render(request, 'finish_signup.html')
         except IntegrityError:
